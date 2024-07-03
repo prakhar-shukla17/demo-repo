@@ -27,22 +27,18 @@ app.post("/", (req, res) => {
   const ishealth = req.body.ishealth;
   user[0].kidneys.push({ health: ishealth });
   res.send("Done!");
-}
-);
+});
 
-app.delete("/", (req, res) => { 
-  const newkidney=[];
+app.delete("/", (req, res) => {
+  const newkidney = [];
   for (let i = 0; i < user[0].kidneys.lenth; i++) {
-    if (user[0].kidneys[i].health)
-    {
-      newkidney.push({health:true});
-
+    if (user[0].kidneys[i].health) {
+      newkidney.push({ health: true });
     }
   }
   user[0].kidneys = newkidney;
   res.json("Done");
-}
-);
+});
 app.listen(port);
 {
   console.log(`listening on ${port}`);
